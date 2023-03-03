@@ -1,6 +1,5 @@
 from django.db import models
 
-from ..models import Status, Type
 
 
 class Task(models.Model):
@@ -30,16 +29,14 @@ class Task(models.Model):
 
     # Relations
     status = models.ManyToManyField(
-        Status,
-        on_delete=models.RESTRICT,
+        to='issue_tracker.Status',
         related_name='tasks',
         blank=True,
         verbose_name='Статус',
     )
 
     type = models.ManyToManyField(
-        Type,
-        on_delete=models.RESTRICT,
+        to='issue_tracker.Type',
         related_name='tasks',
         blank=True,
         verbose_name='Тип',
