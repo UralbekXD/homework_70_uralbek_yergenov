@@ -2,7 +2,7 @@
     <div class="border border-1 rounded-3 bg-white shadow p-3">
 
         <div class="task mb-3">
-            <a href="{% url 'task_detail' task.pk %}">
+            <a href="{% url 'task_detail' task.pk %}" style="word-wrap: break-word">
                 {{ task.short_description }}
             </a>
         </div>
