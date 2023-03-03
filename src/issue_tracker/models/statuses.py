@@ -8,3 +8,6 @@ class Status(models.Model):
         blank=False,
         verbose_name='Название',
     )
+
+    def __str__(self):
+        return self.name

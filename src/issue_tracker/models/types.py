@@ -8,3 +8,6 @@ class Type(models.Model):
         blank=False,
         verbose_name='Назвавние',
     )
+
+    def __str__(self):
+        return self.name

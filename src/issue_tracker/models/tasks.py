@@ -41,3 +41,6 @@ class Task(models.Model):
         blank=True,
         verbose_name='Тип',
     )
+
+    def __str__(self):
+        return f'{self.short_description}'
