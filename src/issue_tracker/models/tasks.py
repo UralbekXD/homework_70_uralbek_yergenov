@@ -28,14 +28,14 @@ class Task(models.Model):
     )
 
     # Relations
-    status = models.ManyToManyField(
+    statuses = models.ManyToManyField(
         to='issue_tracker.Status',
         related_name='tasks',
         blank=True,
         verbose_name='Статус',
     )
 
-    type = models.ManyToManyField(
+    types = models.ManyToManyField(
         to='issue_tracker.Type',
         related_name='tasks',
         blank=True,
