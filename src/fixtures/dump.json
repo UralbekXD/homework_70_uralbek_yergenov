@@ -1,0 +1,194 @@
+[
+{
+    "model": "issue_tracker.task",
+    "pk": 1,
+    "fields": {
+        "short_description": "Поправить баг с кликанием ссылки на главную страницу",
+        "full_description": null,
+        "created_at": "2023-03-03T06:18:55.880Z",
+        "updated_at": "2023-03-03T06:18:55.880Z",
+        "status": [
+            2
+        ],
+        "type": [
+            1,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 2,
+    "fields": {
+        "short_description": "Сделать модалку на сайте",
+        "full_description": "Модалка для подтверждения удаления задачи",
+        "created_at": "2023-03-03T06:20:16.089Z",
+        "updated_at": "2023-03-03T06:20:16.089Z",
+        "status": [
+            1
+        ],
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 3,
+    "fields": {
+        "short_description": "Изменить лого",
+        "full_description": null,
+        "created_at": "2023-03-03T06:21:29.252Z",
+        "updated_at": "2023-03-03T06:21:29.252Z",
+        "status": [
+            2
+        ],
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 4,
+    "fields": {
+        "short_description": "Добавить операция CRUD над задачами",
+        "full_description": null,
+        "created_at": "2023-03-03T06:23:20.476Z",
+        "updated_at": "2023-03-03T06:23:20.476Z",
+        "status": [
+            2
+        ],
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 5,
+    "fields": {
+        "short_description": "Изменить цвет навигационного меню на более светлый",
+        "full_description": "Цвет должен поменяться на всех страницах где он есть",
+        "created_at": "2023-03-03T06:24:21.079Z",
+        "updated_at": "2023-03-03T06:24:21.079Z",
+        "status": [
+            3
+        ],
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 6,
+    "fields": {
+        "short_description": "Создать страницу ABOUT для сайта",
+        "full_description": "Спросить все необходимые данные у дизайнера",
+        "created_at": "2023-03-03T06:25:26.145Z",
+        "updated_at": "2023-03-03T06:25:26.145Z",
+        "status": [
+            3
+        ],
+        "type": [
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 7,
+    "fields": {
+        "short_description": "Добавить футер для сайта",
+        "full_description": "Футер должен быть там же где есть навигационное меню",
+        "created_at": "2023-03-03T06:27:29.338Z",
+        "updated_at": "2023-03-03T06:27:29.338Z",
+        "status": [
+            1
+        ],
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 8,
+    "fields": {
+        "short_description": "Исправить странное поведение при изменений ширины страницы",
+        "full_description": null,
+        "created_at": "2023-03-03T06:51:15.231Z",
+        "updated_at": "2023-03-03T06:51:15.231Z",
+        "status": [
+            1
+        ],
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 9,
+    "fields": {
+        "short_description": "Оптимизация загрузки сайта",
+        "full_description": null,
+        "created_at": "2023-03-03T06:53:52.668Z",
+        "updated_at": "2023-03-03T06:53:52.668Z",
+        "status": [
+            2
+        ],
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.type",
+    "pk": 1,
+    "fields": {
+        "name": "Bug"
+    }
+},
+{
+    "model": "issue_tracker.type",
+    "pk": 2,
+    "fields": {
+        "name": "Enhancement"
+    }
+},
+{
+    "model": "issue_tracker.type",
+    "pk": 3,
+    "fields": {
+        "name": "Task"
+    }
+},
+{
+    "model": "issue_tracker.status",
+    "pk": 1,
+    "fields": {
+        "name": "New"
+    }
+},
+{
+    "model": "issue_tracker.status",
+    "pk": 2,
+    "fields": {
+        "name": "In Progress"
+    }
+},
+{
+    "model": "issue_tracker.status",
+    "pk": 3,
+    "fields": {
+        "name": "Done"
+    }
+}
+]
