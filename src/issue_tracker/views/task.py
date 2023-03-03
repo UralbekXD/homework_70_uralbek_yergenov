@@ -10,8 +10,7 @@ class TaskDetailView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        task_primary_key = context['pk']
-        context['task'] = Task.objects.get(pk=task_primary_key)
+        context['task'] = Task.objects.get(pk=context.get('pk'))
         return context
 
 
@@ -47,3 +46,26 @@ class TaskAddView(View):
             )
 
         return redirect('index')
+
+
+class TaskEditView(TemplateView):
+    template_name = 'issue_tracker/task_update.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['task'] = Task.objects.get(pk=context.get('pk'))
+        context['form'] = TaskForm(instance=context.get('task'))
+        return context
+
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(pk=kwargs.get('pk'))
+        form = TaskForm(request.POST, instance=task)
+
+        if not form.is_valid():
+            return render(request, 'issue_tracker/task_update.html', context={
+                'form': form,
+                'task': task,
+            })
+
+        form.save()
+        return redirect('task_detail', pk=task.pk)
