@@ -69,3 +69,12 @@ class TaskEditView(TemplateView):
 
         form.save()
         return redirect('task_detail', pk=task.pk)
+
+
+class TaskDeleteView(View):
+    def post(self, request, *args, **kwargs):
+        task = Task.objects.get(pk=kwargs.get('pk'))
+        task.delete()
+
+        return redirect('index')
+

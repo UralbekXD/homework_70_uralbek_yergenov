@@ -41,7 +41,11 @@
 
         <div class="buttons d-flex gap-1">
             <a href="{% url 'task_update' task.pk %}" class="btn btn-warning btn-sm">Edit</a>
-            <a href="#" class="btn btn-danger btn-sm">Delete</a>
+            <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ task.pk }}">
+                Delete
+            </a>
+
+            {% include 'issue_tracker/includes/modal.html' with task=task%}
         </div>
     </div>
 </div>
