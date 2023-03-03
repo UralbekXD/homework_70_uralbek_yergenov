@@ -12,15 +12,28 @@
         </div>
 
         <div class="task mb-3">
-            {{ task.short_description }}
+            <a href="{% url 'task_detail' task.pk %}">
+                {{ task.short_description }}
+            </a>
         </div>
 
         <div class="types d-flex gap-2">
+            Types:
             {% for type in task.type.all %}
                 <h5>
-                    <span class="badge bg-primary">
-                        {{ type.name }}
-                    </span>
+                    {% if type.name == "Bug" %}
+                        <span class="badge bg-warning">
+                            {{ type.name }}
+                        </span>
+                    {% elif type.name == "Task" %}
+                        <span class="badge bg-primary">
+                            {{ type.name }}
+                        </span>
+                    {% else %}
+                        <span class="badge bg-success">
+                            {{ type.name }}
+                        </span>
+                    {% endif %}
                 </h5>
             {% endfor %}
         </div>

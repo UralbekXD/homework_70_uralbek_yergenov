@@ -1,0 +1,60 @@
+<div class="border rounded-0 bg-white shadow p-3">
+    <div class="short mb-3">
+        <div class="title fw-bold">
+            Short Description:
+        </div>
+        <div class="info ps-5">
+            {{ task.short_description }}
+        </div>
+    </div>
+
+    <div class="status d-flex gap-2 mb-2">
+        <span class="fw-bold">Status:</span>
+        {% for status in task.status.all %}
+            <h5>
+                <span class="badge bg-secondary">
+                    {{ status.name }}
+                </span>
+            </h5>
+        {% endfor %}
+    </div>
+
+    <div class="types d-flex gap-2">
+        <span class="fw-bold">Types:</span>
+        {% for type in task.type.all %}
+            <h5>
+                {% if type.name == "Bug" %}
+                    <span class="badge bg-warning">
+                        {{ type.name }}
+                    </span>
+                {% elif type.name == "Task" %}
+                    <span class="badge bg-primary">
+                        {{ type.name }}
+                    </span>
+                {% else %}
+                    <span class="badge bg-success">
+                        {{ type.name }}
+                    </span>
+                {% endif %}
+            </h5>
+        {% endfor %}
+    </div>
+
+    <div class="full">
+        <div class="title fw-bold">
+            Full Description:
+        </div>
+        <div class="info ps-5">
+            {% if task.full_description %}
+                {{ task.full_description }}
+            {% else %}
+                <p class="fw-bold">No Description</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="time">
+        <p>Created: {{ task.created_at }}</p>
+        <p>Last Updated: {{ task.updated_at }}</p>
+    </div>
+</div>
