@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Create Task
+{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <form action="{% url 'task_create' %}" method="POST">
+            {% include 'issue_tracker/includes/form.html' with button_text='Create' %}
+        </form>
+    </div>
+{% endblock %}
