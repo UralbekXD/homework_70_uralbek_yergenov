@@ -1,5 +1,12 @@
 <div class="col-12 col-md-4 col-lg-3 fw-bold">
     <div class="border border-1 rounded-3 bg-white shadow p-3">
+
+        <div class="task mb-3">
+            <a href="{% url 'task_detail' task.pk %}">
+                {{ task.short_description }}
+            </a>
+        </div>
+
         <div class="status d-flex flex-wrap gap-1 mb-2">
             Status:
             {% for status in task.statuses.all %}
@@ -11,13 +18,7 @@
             {% endfor %}
         </div>
 
-        <div class="task mb-3">
-            <a href="{% url 'task_detail' task.pk %}">
-                {{ task.short_description }}
-            </a>
-        </div>
-
-        <div class="types d-flex flex-wrap gap-1">
+        <div class="types d-flex flex-wrap gap-1 mb-3">
             Types:
             {% for type in task.types.all %}
                 <h6>
@@ -36,6 +37,11 @@
                     {% endif %}
                 </h6>
             {% endfor %}
+        </div>
+
+        <div class="buttons d-flex gap-1">
+            <a href="{% url 'task_update' task.pk %}" class="btn btn-warning btn-sm">Edit</a>
+            <a href="#" class="btn btn-danger btn-sm">Delete</a>
         </div>
     </div>
 </div>
