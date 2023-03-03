@@ -1,0 +1,28 @@
+<div class="col-12 col-md-4 col-lg-3 fw-bold">
+    <div class="border border-1 rounded-3 bg-white shadow p-3">
+        <div class="status d-flex gap-2 mb-2">
+            Status:
+            {% for status in task.status.all %}
+                <h5>
+                    <span class="badge bg-secondary">
+                        {{ status.name }}
+                    </span>
+                </h5>
+            {% endfor %}
+        </div>
+
+        <div class="task mb-3">
+            {{ task.short_description }}
+        </div>
+
+        <div class="types d-flex gap-2">
+            {% for type in task.type.all %}
+                <h5>
+                    <span class="badge bg-primary">
+                        {{ type.name }}
+                    </span>
+                </h5>
+            {% endfor %}
+        </div>
+    </div>
+</div>
