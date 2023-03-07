@@ -1,0 +1,16 @@
+#1
+from datetime import datetime, timedelta
+last_month = datetime.now() - timedelta(weeks=4)
+Task.objects.filter(statuses=3, updated_at__gte=last_month)
+
+#2
+Task.objects.filter(statuses__in=[1, 3], types__in=[1, 3])
+
+#3
+q1 = Task.objects.filter(short_description__icontains='bug')
+q2 = Task.objects.filter(types=1).exclude(statuses=3)
+q3 = q1 | q2
+
+
+# BONUS
+    #1 Task.objects.all().values('pk', 'short_description', 'types', 'statuses')
