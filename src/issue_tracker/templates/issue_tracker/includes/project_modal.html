@@ -1,11 +1,11 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-record-{{ task.pk }}" tabindex="-1"
-     aria-labelledby="modal-record-{{ task.pk }}-label"
+<div class="modal fade" id="modal-record-{{ project.pk }}" tabindex="-1"
+     aria-labelledby="modal-record-{{ project.pk }}-label"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete this task?</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete this project?</h1>
             </div>
             <div class="modal-body">
                 Are you sure?
@@ -14,7 +14,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">close</button>
                 {#   Delete Confirmation   #}
-                <form action="{% url 'task_delete' task.pk %}" method="POST">
+                <form action="#" method="POST">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger btn-sm">OK</button>
                 </form>

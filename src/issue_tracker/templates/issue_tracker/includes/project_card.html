@@ -2,7 +2,7 @@
     <div class="border border-1 rounded-3 bg-white shadow p-3 h-100">
 
         <div class="task mb-3">
-            <a href="#" style="word-wrap: break-word">
+            <a href="{% url 'project_detail' project.pk %}" style="word-wrap: break-word">
                 {{ project.name }}
             </a>
         </div>
@@ -13,7 +13,7 @@
                 Delete
             </a>
 
-            {% include 'issue_tracker/includes/modal.html' with obj=project %}
+            {% include 'issue_tracker/includes/project_modal.html'%}
         </div>
     </div>
 </div>

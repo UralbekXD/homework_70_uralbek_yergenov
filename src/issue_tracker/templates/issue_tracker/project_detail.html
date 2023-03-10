@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Project Detail
+{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+            <div class="border rounded-0 bg-white shadow p-3">
+                <div class="name mb-3">
+                    <div class="title fw-bold">
+                        Name:
+                    </div>
+                    <div class="info ps-5">
+                        {{ project.name }}
+                    </div>
+                </div>
+
+                <div class="descr">
+                    <div class="title fw-bold">
+                        Description:
+                    </div>
+                    <div class="info ps-5">
+                        {% if project.description %}
+                            {{ project.description }}
+                        {% else %}
+                            <p class="fw-bold">No Description</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="time">
+                    <p>Start: {{ project.start_date }}</p>
+                    <p>End: {{ project.end_date }}</p>
+                </div>
+
+                <div class="buttons d-flex gap-1">
+                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                    <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ project.pk }}">
+                        Delete
+                    </a>
+
+                    {% include 'issue_tracker/includes/project_modal.html'%}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-3 gy-5 mb-5 mt-5">
+
+        <h2>Project Tasks:</h2>
+        {% for task in tasks %}
+            {% include 'issue_tracker/includes/card.html'%}
+        {% endfor %}
+    </div>
+{% endblock %}
