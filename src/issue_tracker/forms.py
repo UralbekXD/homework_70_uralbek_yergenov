@@ -1,7 +1,7 @@
 from django import forms
 from django.core.validators import BaseValidator, ValidationError
 
-from .models import Task, Type, Status
+from .models import Task, Type, Status, Project
 
 
 class MinimumLengthValidator(BaseValidator):
@@ -95,3 +95,90 @@ class TaskForm(forms.ModelForm):
             raise ValidationError('Short description like this, already exist!')
 
         return short_description
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = [
+            'name',
+            'description',
+            'start_date',
+            'end_date',
+        ]
+
+        labels = {
+            'name': 'Название',
+            'full_description': 'Описание',
+            'start_date': 'Дата начала',
+            'end_date': 'Дата окончания',
+        }
+
+        widgets = {
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control mb-3'
+                }
+            ),
+            'description': forms.Textarea(
+                attrs={
+                    'class': 'form-select mb-3'
+                },
+            ),
+            'start_date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                    'class': 'form-control mb-3'
+                }
+            ),
+            'end_date': forms.DateInput(
+                attrs={
+                    'type': 'date',
+                    'class': 'form-control mb-3'
+                }
+            ),
+        }
+
+
+class ProjectTaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = [
+            'short_description',
+            'full_description',
+            'statuses',
+            'types',
+        ]
+
+        labels = {
+            'short_description': 'Краткое описание',
+            'full_description': 'Полное описание',
+            'statuses': 'Статусы',
+            'types': 'Типы',
+        }
+
+        widgets = {
+            'short_description': forms.TextInput(
+                attrs={
+                    'class': 'form-control mb-3'
+                }
+            ),
+            'full_description': forms.Textarea(
+                attrs={
+                    'class': 'form-control mb-3'
+                }
+            ),
+            'statuses': forms.SelectMultiple(
+                attrs={
+                    'class': 'form-select mb-3'
+                },
+                choices=Status.objects.all(),
+            ),
+            'types': forms.SelectMultiple(
+                attrs={
+                    'class': 'form-select mb-3'
+                },
+                choices=Type.objects.all()
+            ),
+        }
+

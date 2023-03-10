@@ -14,7 +14,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">close</button>
                 {#   Delete Confirmation   #}
-                <form action="#" method="POST">
+                <form action="{% url 'project_delete' project.pk %}" method="POST">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-danger btn-sm">OK</button>
                 </form>

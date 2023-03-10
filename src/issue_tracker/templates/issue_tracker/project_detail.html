@@ -52,8 +52,15 @@
         </div>
     </div>
 
-    <div class="row gx-3 gy-5 mb-5 mt-5">
 
+    <div class="row mt-5">
+        <form action="{% url 'project_task_create' project.pk %}" method="POST">
+            {% include 'issue_tracker/includes/form.html' with form=project_task_form button_text='Create' %}
+        </form>
+    </div>
+
+
+    <div class="row gx-3 gy-5 mb-5 mt-5">
         <h2>Project Tasks:</h2>
         {% for task in tasks %}
             {% include 'issue_tracker/includes/card.html'%}
