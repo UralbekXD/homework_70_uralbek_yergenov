@@ -28,6 +28,14 @@ class MaximumLengthValidator(BaseValidator):
         return len(value)
 
 
+class SearchForm(forms.Form):
+    search = forms.CharField(
+        max_length=256,
+        required=False,
+        label='Найти',
+    )
+
+
 class TaskForm(forms.ModelForm):
     short_description = forms.CharField(
         validators=(MinimumLengthValidator(min_value=2), MaximumLengthValidator(max_value=128)),

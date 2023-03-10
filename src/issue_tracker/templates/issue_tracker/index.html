@@ -6,13 +6,31 @@
 {% endblock %}
 
 {% block extra_css %}
-
+    <link rel="stylesheet" href="{% static 'issue_tracker/css/pagination.css' %}">
 {% endblock %}
 
 {% block content %}
-    <div class="row gx-3 gy-5">
+    <div class="row mb-3">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+            {% include 'issue_tracker/includes/search.html' %}
+        </div>
+    </div>
+
+    <div class="row mb-5">
+        {% if is_paginated %}
+           {% include 'issue_tracker/includes/pagination.html' %}
+        {% endif %}
+    </div>
+
+    <div class="row gx-3 gy-5 mb-5">
         {% for task in tasks %}
-            {% include 'issue_tracker/includes/card.html' with task=task %}
+            {% include 'issue_tracker/includes/card.html'%}
         {% endfor %}
+    </div>
+
+    <div class="row mb-3">
+        {% if is_paginated %}
+           {% include 'issue_tracker/includes/pagination.html' %}
+        {% endif %}
     </div>
 {% endblock %}
