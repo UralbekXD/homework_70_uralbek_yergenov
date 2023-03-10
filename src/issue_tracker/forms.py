@@ -88,14 +88,6 @@ class TaskForm(forms.ModelForm):
             ),
         }
 
-    def clean_short_description(self):
-        short_description = self.cleaned_data.get('short_description')
-        tasks = Task.objects.filter(short_description=short_description)
-        if len(tasks) >= 1:
-            raise ValidationError('Short description like this, already exist!')
-
-        return short_description
-
 
 class ProjectForm(forms.ModelForm):
     class Meta:

@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.views.generic import View, TemplateView
+from django.shortcuts import render, redirect, reverse
+from django.views.generic import View, TemplateView, UpdateView, DeleteView
 
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
@@ -48,33 +48,18 @@ class TaskAddView(View):
         return redirect('index')
 
 
-class TaskEditView(TemplateView):
+class TaskEditView(UpdateView):
+    model = Task
     template_name = 'issue_tracker/task_update.html'
+    form_class = TaskForm
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = Task.objects.get(pk=context.get('pk'))
-        context['form'] = TaskForm(instance=context.get('task'))
-        return context
-
-    def post(self, request, *args, **kwargs):
-        task = Task.objects.get(pk=kwargs.get('pk'))
-        form = TaskForm(request.POST, instance=task)
-
-        if not form.is_valid():
-            return render(request, 'issue_tracker/task_update.html', context={
-                'form': form,
-                'task': task,
-            })
-
-        form.save()
-        return redirect('task_detail', pk=task.pk)
+    def get_success_url(self):
+        return reverse('task_detail', kwargs={'pk': self.object.pk})
 
 
-class TaskDeleteView(View):
-    def post(self, request, *args, **kwargs):
-        task = Task.objects.get(pk=kwargs.get('pk'))
-        task.delete()
+class TaskDeleteView(DeleteView):
+    model = Task
 
-        return redirect('index')
+    def get_success_url(self):
+        return reverse('tasks')
 
