@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Issue Tracker
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'issue_tracker/css/pagination.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row gx-3 gy-5 mb-5">
+        {% for project in projects %}
+            {% include 'issue_tracker/includes/project_card.html' %}
+        {% endfor %}
+    </div>
+{% endblock %}

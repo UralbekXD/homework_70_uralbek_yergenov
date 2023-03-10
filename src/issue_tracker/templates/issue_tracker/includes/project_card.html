@@ -1,0 +1,19 @@
+<div class="col-12 col-md-4 fw-bold">
+    <div class="border border-1 rounded-3 bg-white shadow p-3 h-100">
+
+        <div class="task mb-3">
+            <a href="#" style="word-wrap: break-word">
+                {{ project.name }}
+            </a>
+        </div>
+
+        <div class="buttons d-flex gap-1">
+            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+            <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ project.pk }}">
+                Delete
+            </a>
+
+            {% include 'issue_tracker/includes/modal.html' with obj=project %}
+        </div>
+    </div>
+</div>
