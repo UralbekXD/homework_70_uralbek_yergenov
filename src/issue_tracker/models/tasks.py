@@ -48,7 +48,7 @@ class Task(models.Model):
         related_name='tasks',
         on_delete=models.CASCADE,
         verbose_name='Проект',
-        null=True,
+        default=Project.objects.get(name='test'),
     )
 
     def __str__(self):
