@@ -1,5 +1,7 @@
 from django.db import models
 
+from .project import Project
+
 
 class Task(models.Model):
     short_description = models.CharField(
@@ -41,5 +43,15 @@ class Task(models.Model):
         verbose_name='Тип',
     )
 
+    project = models.ForeignKey(
+        Project,
+        related_name='tasks',
+        on_delete=models.CASCADE,
+        verbose_name='Проект',
+        null=True,
+    )
+
     def __str__(self):
-        return f'{self.short_description}'
+        return self.short_description
+
+
