@@ -53,6 +53,7 @@ class TaskForm(forms.ModelForm):
             'full_description',
             'statuses',
             'types',
+            'project',
         ]
 
         labels = {
@@ -79,7 +80,12 @@ class TaskForm(forms.ModelForm):
                     'class': 'form-select mb-3'
                 },
                 choices=Type.objects.all()
-            )
+            ),
+            'project': forms.Select(
+                attrs={
+                    'class': 'form-select mb-3'
+                },
+            ),
         }
 
     def clean_short_description(self):
