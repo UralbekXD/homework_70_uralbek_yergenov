@@ -1,5 +1,15 @@
 [
 {
+    "model": "issue_tracker.project",
+    "pk": 1,
+    "fields": {
+        "start_date": "2023-03-10",
+        "end_date": "2023-03-31",
+        "name": "test",
+        "description": "test project"
+    }
+},
+{
     "model": "issue_tracker.task",
     "pk": 1,
     "fields": {
@@ -7,6 +17,7 @@
         "full_description": null,
         "created_at": "2023-03-03T06:18:55.880Z",
         "updated_at": "2023-03-06T16:15:28.429Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -24,6 +35,7 @@
         "full_description": "Модалка для подтверждения удаления задачи",
         "created_at": "2023-03-03T06:20:16.089Z",
         "updated_at": "2023-03-03T06:20:16.089Z",
+        "project": 1,
         "statuses": [
             1
         ],
@@ -41,6 +53,7 @@
         "full_description": null,
         "created_at": "2023-03-03T06:21:29.252Z",
         "updated_at": "2023-03-03T06:21:29.252Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -58,6 +71,7 @@
         "full_description": null,
         "created_at": "2023-03-03T06:23:20.476Z",
         "updated_at": "2023-03-03T06:23:20.476Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -75,6 +89,7 @@
         "full_description": "Цвет должен поменяться на всех страницах где он есть",
         "created_at": "2023-03-03T06:24:21.079Z",
         "updated_at": "2023-03-03T06:24:21.079Z",
+        "project": 1,
         "statuses": [
             3
         ],
@@ -92,6 +107,7 @@
         "full_description": "Спросить все необходимые данные у дизайнера",
         "created_at": "2023-03-03T06:25:26.145Z",
         "updated_at": "2023-03-03T06:25:26.145Z",
+        "project": 1,
         "statuses": [
             3
         ],
@@ -108,6 +124,7 @@
         "full_description": "Футер должен быть там же где есть навигационное меню",
         "created_at": "2023-03-03T06:27:29.338Z",
         "updated_at": "2023-03-03T06:27:29.338Z",
+        "project": 1,
         "statuses": [
             1
         ],
@@ -125,6 +142,7 @@
         "full_description": null,
         "created_at": "2023-03-03T06:51:15.231Z",
         "updated_at": "2023-03-03T06:51:15.231Z",
+        "project": 1,
         "statuses": [
             1
         ],
@@ -141,6 +159,7 @@
         "full_description": null,
         "created_at": "2023-03-03T06:53:52.668Z",
         "updated_at": "2023-03-03T06:53:52.668Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -157,6 +176,7 @@
         "full_description": "test",
         "created_at": "2023-03-06T17:50:16.276Z",
         "updated_at": "2023-03-06T17:50:16.276Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -173,6 +193,7 @@
         "full_description": "Для второго этапа",
         "created_at": "2023-03-07T10:38:09.803Z",
         "updated_at": "2023-03-07T10:38:09.803Z",
+        "project": 1,
         "statuses": [
             1
         ],
@@ -189,6 +210,7 @@
         "full_description": "If men wish to live, then they are forced to kill others. The entire struggle for survival is a\r\nconquest of the means of existence, which in turn results in the elimination of others from these\r\nsame sources of subsistence. As long as there are peoples on this earth, there will be nations\r\nagainst nations and they will be forced to protect their vital rights in the same way as the\r\nindividual is forced to protect his rights.\r\nOne is either the hammer or the anvil. We confess that it is our purpose to prepare the\r\nGerman people again for the role of the hammer. We admit freely and openly that if our\r\nmovement is victorious, we will be concerned day and night with the question of how to produce\r\nthe armed forces, which are forbidden us by the peace treaty [Treaty of Versailles]. We solemnly\r\nconfess that we consider everyone a scoundrel who does not try day and night to figure out a way\r\nto violate this treaty, for we have never recognized this treaty...We will take every step which\r\nstrengthens our arms, which augments the number of our forces, and which increases the strength\r\nof our people. We confess further that we will dash anyone to pieces who should dare hinder us\r\nin this undertaking...Our rights will be protected only when the German Reich [country] is again\r\nsupported by the point of the German dagger...",
         "created_at": "2023-03-07T10:39:46.063Z",
         "updated_at": "2023-03-07T10:39:46.063Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -205,6 +227,7 @@
         "full_description": "Friends, Romans, countrymen, lend me your ears;\r\nI come to bury Caesar, not to praise him.\r\nThe evil that men do lives after them;\r\nThe good is oft interred with their bones;\r\nSo let it be with Caesar. The noble Brutus\r\nHath told you Caesar was ambitious:\r\nIf it were so, it was a grievous fault,\r\nAnd grievously hath Caesar answer’d it.\r\nHere, under leave of Brutus and the rest–\r\nFor Brutus is an honourable man;\r\nSo are they all, all honourable men–\r\nCome I to speak in Caesar’s funeral.\r\nHe was my friend, faithful and just to me:\r\nBut Brutus says he was ambitious;\r\nAnd Brutus is an honourable man.\r\nHe hath brought many captives home to Rome\r\nWhose ransoms did the general coffers fill:\r\nDid this in Caesar seem ambitious?\r\nWhen that the poor have cried, Caesar hath wept:\r\nAmbition should be made of sterner stuff:\r\nYet Brutus says he was ambitious;\r\nAnd Brutus is an honourable man.\r\nYou all did see that on the Lupercal\r\nI thrice presented him a kingly crown,\r\nWhich he did thrice refuse: was this ambition?\r\nYet Brutus says he was ambitious;\r\nAnd, sure, he is an honourable man.\r\nI speak not to disprove what Brutus spoke,\r\nBut here I am to speak what I do know.\r\nYou all did love him once, not without cause:\r\nWhat cause withholds you then, to mourn for him?\r\nO judgment! thou art fled to brutish beasts,\r\nAnd men have lost their reason. Bear with me;\r\nMy heart is in the coffin there with Caesar,\r\nAnd I must pause till it come back to me.",
         "created_at": "2023-03-07T10:40:31.477Z",
         "updated_at": "2023-03-07T10:40:31.477Z",
+        "project": 1,
         "statuses": [
             1
         ],
@@ -221,6 +244,7 @@
         "full_description": "Soldiers of my Old Guard: I bid you farewell. For twenty years I have constantly accompanied you on the road to honor and glory. In these latter times, as in the days of our prosperity, you have invariably been models of courage and fidelity. With men such as you our cause could not be lost; but the war would have been interminable; it would have been civil war, and that would have entailed deeper misfortunes on France.\r\n        I have sacrificed all of my interests to those of the country.\r\n        I go, but you, my friends, will continue to serve France. Her happiness was my only thought. It will still be the object of my wishes. Do not regret my fate; if I have consented to survive, it is to serve your glory. I intend to write the history of the great achievements we have performed together. Adieu, my friends. Would I could press you all to my heart.",
         "created_at": "2023-03-07T10:41:24.585Z",
         "updated_at": "2023-03-07T10:41:34.976Z",
+        "project": 1,
         "statuses": [
             2
         ],
@@ -237,6 +261,7 @@
         "full_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ligula ex, semper sed porta ut, mattis eu metus. Nunc aliquam porta pellentesque. Morbi quis pulvinar sem, et dignissim enim. Sed maximus turpis eu dui tincidunt commodo. Aliquam ante orci, malesuada id orci a, dictum imperdiet dolor. Curabitur augue tellus, tristique tempus egestas a, sodales vel eros. Donec efficitur erat sit amet lacus pellentesque, at aliquam ipsum congue. Vivamus feugiat leo quis purus ullamcorper congue. Morbi sodales tellus erat, a molestie quam auctor ut. Nunc aliquam quam leo, a rutrum ante scelerisque vel. Nullam dapibus urna et cursus fringilla. Etiam dictum accumsan velit, vitae posuere erat euismod pulvinar. Ut sit amet libero sagittis, sodales nibh ac, tincidunt eros. Suspendisse ut dui molestie, tempus lacus quis, scelerisque purus. Donec convallis sem risus, eget suscipit nisl venenatis non.\r\n\r\nInteger hendrerit, felis ac dignissim sollicitudin, metus velit suscipit elit, ut iaculis diam nibh a diam. Mauris lobortis malesuada dui a dapibus. Nulla lobortis sed turpis in molestie. Nam id pellentesque tortor, id rhoncus velit. Vivamus nec dignissim ex, sed finibus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam semper erat enim, et molestie tellus convallis eu. Aliquam nisi quam, porttitor in ipsum et, feugiat finibus eros. Morbi nulla sem, vulputate nec porta id, lobortis id augue. Curabitur dictum, metus et congue lacinia, mi eros molestie elit, sit amet dictum leo odio id lacus. Morbi quam diam, ultricies condimentum urna sed, vulputate efficitur metus.\r\n\r\nEtiam venenatis lorem ut ex ullamcorper lacinia. Nulla molestie massa ac luctus cursus. Maecenas ut venenatis sem. Donec eleifend imperdiet scelerisque. Nam vitae fringilla metus, id rhoncus leo. Praesent eu quam et dui posuere pretium. Duis scelerisque placerat risus, quis porta mauris efficitur id. Nullam nec erat quis nibh ultrices lobortis.",
         "created_at": "2023-03-07T10:42:50.021Z",
         "updated_at": "2023-03-07T10:42:50.021Z",
+        "project": 1,
         "statuses": [
             3
         ],
@@ -253,6 +278,7 @@
         "full_description": "Historians believe Subutai was born in the year 1175,[2] probably just west of the upper Onon River in what is now Mongolia. Some historical accounts claim that he belonged to the Uriankhai clan. As a member of the reindeer people, according to these accounts, Subutai lacked the natural horsemanship training from birth that all Mongols possessed, making him an outsider among them.[3]\r\n\r\nHowever, recent scholarship has discounted this earlier narrative. Stephen Pow and Jingjing Liao note that \"...the sense of irony conjured by imagining that the Mongol Empire’s greatest general was a reindeer-herding outsider to steppe nomadic culture has a strong literary appeal to modern authors.\"[4]\r\n\r\nIn fact, Subutai's family had been associated with the family of Temujin (future Genghis Khan) for many generations. Subutai's great-great-grandfather, Nerbi, was supposedly an ally of the Mongol Khan Tumbina Sechen. Subutai's father, Jarchigudai, supposedly supplied food to Temujin and his followers when they were in dire straits at lake Baljuna, and Subutai's elder brother Jelme also served as a general in the Mongol army and was a close companion of Temujin. Jelme rescued a severely wounded Temujin (hit by an arrow from Jebe, then an enemy) in the process of unification of the Mongolian plateau. Another brother, Chaurkhan (also romanized as Ca'urqan) is mentioned in the Secret History of the Mongols.[5]\r\n\r\nAccording to Subutai's biography in the History of Yuan, Subutai's father was once driving a herd of sheep in order to present them to his overlord, Taizu (Genghis Khan). Encountering robbers, he was seized. Huluhun (Subutai's brother) and Subutai arrived in good time, and with their lances stabbed some of the robbers. Horses and men fell together, and the remainder of the band withdrew and departed. Consequently, they relieved their father's difficulty, and the sheep were able to attain the emperor's station.[6]",
         "created_at": "2023-03-07T10:44:22.110Z",
         "updated_at": "2023-03-07T10:44:22.110Z",
+        "project": 1,
         "statuses": [
             2
         ],
