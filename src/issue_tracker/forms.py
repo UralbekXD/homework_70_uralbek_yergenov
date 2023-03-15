@@ -33,6 +33,11 @@ class SearchForm(forms.Form):
         max_length=256,
         required=False,
         label='Найти',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control'
+            }
+        )
     )
 
 

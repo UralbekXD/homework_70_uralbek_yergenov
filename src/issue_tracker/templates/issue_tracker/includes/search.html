@@ -1,8 +1,8 @@
-<form class="text-center" action="" method="GET">
-    <label for="{{ form.search.id_for_label }}">{{ form.search.label }}:</label>
-    {{ form.search }}
-    <button type="submit" class="btn btn-primary btn-sm">Search</button>
-    {% for error in form.search.errors %}
-        <p class="form-error">{{ error }}</p>
-    {% endfor %}
+<form action="{% url 'index' %}" method="GET">
+    <div class="input-group">
+        {{ form.search }}
+        <button type="submit" class="input-group-text">
+            <i class="bi bi-search"></i>
+        </button>
+    </div>
 </form>
