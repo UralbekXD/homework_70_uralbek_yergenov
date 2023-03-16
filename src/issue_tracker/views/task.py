@@ -32,6 +32,7 @@ class TaskAddView(LoginRequiredMixin, View):
         task = Task.objects.create(
             short_description=form.cleaned_data.get('short_description'),
             full_description=form.cleaned_data.get('full_description'),
+            project=form.cleaned_data.get('project'),
         )
 
         statuses = form.cleaned_data.get('statuses')
