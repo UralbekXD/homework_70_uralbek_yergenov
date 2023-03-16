@@ -23,5 +23,4 @@ urlpatterns = [
 
     # Add Task to Project
     path('projects/project/<int:pk>/task/create', ProjectTaskAddView.as_view(), name='project_task_create'),
-
 ]

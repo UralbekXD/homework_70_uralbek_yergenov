@@ -34,27 +34,43 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'tasks' %}">
-                            Tasks
+                            Задачи
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'projects' %}">
-                            Projects
+                            Проекты
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'task_create' %}">
-                            Add Task
-                        </a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'task_create' %}">
+                                Добавить Задачу
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'project_create' %}">
-                            Add Project
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'project_create' %}">
+                                Добавить Проект
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light btn btn-danger btn-sm" href="{% url 'logout' %}">
+                                Выйти
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light btn btn-success btn-sm" href="{% url 'login' %}">
+                                Войти
+                            </a>
+                        </li>
+                    {% endif %}
+
+
                 </ul>
             </div>
         </div>

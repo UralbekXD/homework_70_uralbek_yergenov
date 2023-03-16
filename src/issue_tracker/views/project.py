@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from django.shortcuts import reverse, get_object_or_404, redirect
 
@@ -25,7 +26,7 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectAddView(CreateView):
+class ProjectAddView(LoginRequiredMixin, CreateView):
     template_name = 'issue_tracker/project_create.html'
     model = Project
     form_class = ProjectForm
@@ -34,14 +35,14 @@ class ProjectAddView(CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(DeleteView):
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
 
     def get_success_url(self):
         return reverse('projects')
 
 
-class ProjectTaskAddView(CreateView):
+class ProjectTaskAddView(LoginRequiredMixin, CreateView):
     model = Task
     form_class = ProjectTaskForm
 
