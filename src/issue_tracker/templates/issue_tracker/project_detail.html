@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="buttons d-flex gap-1">
-                    <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{% url 'project_update' project.pk %}" class="btn btn-warning btn-sm">Edit</a>
                     <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ project.pk }}">
                         Delete
                     </a>
@@ -54,9 +54,11 @@
 
 
     <div class="row mt-5">
-        <form action="{% url 'project_task_create' project.pk %}" method="POST">
-            {% include 'issue_tracker/includes/form.html' with form=project_task_form button_text='Create' %}
-        </form>
+        {% if user.is_authenticated %}
+            <form action="{% url 'project_task_create' project.pk %}" method="POST">
+                {% include 'issue_tracker/includes/form.html' with form=project_task_form button_text='Create' %}
+            </form>
+        {% endif %}
     </div>
 
 

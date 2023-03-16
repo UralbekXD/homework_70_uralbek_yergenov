@@ -78,13 +78,11 @@ class TaskForm(forms.ModelForm):
                 attrs={
                     'class': 'form-select mb-3'
                 },
-                choices=Status.objects.all(),
             ),
             'types': forms.SelectMultiple(
                 attrs={
                     'class': 'form-select mb-3'
                 },
-                choices=Type.objects.all()
             ),
             'project': forms.Select(
                 attrs={
@@ -169,13 +167,11 @@ class ProjectTaskForm(forms.ModelForm):
                 attrs={
                     'class': 'form-select mb-3'
                 },
-                choices=Status.objects.all(),
             ),
             'types': forms.SelectMultiple(
                 attrs={
                     'class': 'form-select mb-3'
                 },
-                choices=Type.objects.all()
             ),
         }
 

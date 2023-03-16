@@ -8,7 +8,7 @@
         </div>
 
         <div class="buttons d-flex gap-1">
-            <a href="#" class="btn btn-warning btn-sm">Edit</a>
+            <a href="{% url 'project_update' project.pk %}" class="btn btn-warning btn-sm">Edit</a>
             <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ project.pk }}">
                 Delete
             </a>
