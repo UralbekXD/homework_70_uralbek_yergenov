@@ -19,6 +19,7 @@ urlpatterns = [
     path('projects/project/create/', ProjectAddView.as_view(), name='project_create'),
     path('projects/project/<int:pk>/', ProjectDetailView.as_view(), name='project_detail'),
     path('projects/project/<int:pk>/edit', ProjectEditView.as_view(), name='project_update'),
+    path('projects/project/<int:pk>/users/edit', ProjectEditUsersView.as_view(), name='project_edit_users'),
     path('projects/project/<int:pk>/delete', ProjectDeleteView.as_view(), name='project_delete'),
 
     # Add Task to Project

@@ -1,5 +1,6 @@
 from django import forms
 from django.core.validators import BaseValidator, ValidationError
+from django.contrib.auth.models import User
 
 from .models import Task, Type, Status, Project
 
@@ -175,3 +176,22 @@ class ProjectTaskForm(forms.ModelForm):
             ),
         }
 
+
+# class ProjectEditUsersForm(forms.Form):
+#     user_add = forms.ModelChoiceField(
+#         queryset=(),
+#         widget=forms.SelectMultiple(
+#             attrs={
+#                 'class': 'form-control mb-3'
+#             }
+#         )
+#     )
+#
+#     user_remove = forms.ModelChoiceField(
+#         queryset=(),
+#         widget=forms.SelectMultiple(
+#             attrs={
+#                 'class': 'form-control mb-3'
+#             }
+#         )
+#     )

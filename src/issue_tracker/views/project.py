@@ -1,5 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.contrib.auth.models import User
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView
 from django.shortcuts import reverse, get_object_or_404, redirect
 
 from issue_tracker.models import Project, Task
@@ -21,8 +22,10 @@ class ProjectDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         project = self.object
         tasks = project.tasks.order_by('-created_at')
+        users = project.users.all()
         context['tasks'] = tasks
         context['project_task_form'] = ProjectTaskForm()
+        context['users'] = users
         return context
 
 
@@ -62,3 +65,33 @@ class ProjectTaskAddView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.project.pk})
+
+
+class ProjectEditUsersView(LoginRequiredMixin, TemplateView):
+    template_name = 'issue_tracker/project_update_users.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        project = Project.objects.get(pk=context.get('pk'))
+        project_users = project.users.all()
+        context['project'] = project
+        context['users'] = User.objects.exclude(username__in=(user.username for user in project_users))
+        context['project_users'] = project_users
+        return context
+
+    def post(self, request, *args, **kwargs):
+        project = Project.objects.get(pk=kwargs.get('pk'))
+
+        users_add = request.POST.getlist('users_add')
+        if users_add:
+            for user_id in users_add:
+                user = User.objects.get(pk=user_id)
+                project.users.add(user)
+
+        users_remove = request.POST.getlist('users_remove')
+        if users_remove:
+            for user_id in users_remove:
+                user = User.objects.get(pk=user_id)
+                project.users.remove(user)
+
+        return redirect('project_detail', pk=project.pk)

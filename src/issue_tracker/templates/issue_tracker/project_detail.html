@@ -54,18 +54,86 @@
 
 
     <div class="row mt-5">
-        {% if user.is_authenticated %}
-            <form action="{% url 'project_task_create' project.pk %}" method="POST">
-                {% include 'issue_tracker/includes/form.html' with form=project_task_form button_text='Create' %}
-            </form>
-        {% endif %}
+        <div class="accordion accordion-flush border p-0" id="accordionFlushExample">
+            {% if user.is_authenticated %}
+                {#      Users      #}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                            <strong>Users</strong>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="row g-4 ">
+                                <div class="users d-flex flex-wrap gap-1">
+                                    {% for user in users %}
+                                        {% if user.username == 'root' %}
+                                            <h5>
+                                                <span class="badge bg-danger">{{ user.username }}</span>
+                                            </h5>
+                                        {% else %}
+                                            <h5>
+                                                <span class="badge bg-secondary">{{ user.username }}</span>
+                                            </h5>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                <div class="manage d-flex justify-content-end">
+                                    <a href="{% url 'project_edit_users' project.pk %}" class="btn btn-primary btn-sm">
+                                        Manage Users
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {#      Task Creation Form      #}
+            {% if user.is_authenticated %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-heading1">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+                            <strong>Add Task</strong>
+                        </button>
+                    </h2>
+                    <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <form action="{% url 'project_task_create' project.pk %}" method="POST">
+                                {% include 'issue_tracker/includes/form.html' with form=project_task_form button_text='Create' %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {#      Tasks      #}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+                        <strong>Project Tasks</strong>
+                    </button>
+                </h2>
+                <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2"
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <div class="row g-4">
+                            {% for task in tasks %}
+                                {% include 'issue_tracker/includes/card.html'%}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <div class="row gx-3 gy-5 mb-5 mt-5">
-        <h2>Project Tasks:</h2>
-        {% for task in tasks %}
-            {% include 'issue_tracker/includes/card.html'%}
-        {% endfor %}
-    </div>
+
 {% endblock %}

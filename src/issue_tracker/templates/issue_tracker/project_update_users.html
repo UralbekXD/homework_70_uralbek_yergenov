@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Edit Project Users
+{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h1 class="mb-5">Редактировать пользователей проекта</h1>
+        <div class="col-12 col-md-8">
+            <form action="{% url 'project_edit_users' project.pk %}" method="POST">
+                {% csrf_token %}
+
+                <label for="users_add">Select users you want to add into project:</label>
+                <select name="users_add" class="form-select mb-5" id="users_add" multiple>
+                    {% for user in users %}
+                        <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="users_remove">Select users you want to remove from project:</label>
+                <select name="users_remove" class="form-select mb-3" id="users_remove" multiple>
+                    {% for user in project_users %}
+                        <option value="{{ user.id }}">{{ user.username }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="btn btn-sm btn-warning">Change</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
