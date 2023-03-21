@@ -1,10 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect, reverse
-from django.views.generic import View, TemplateView, UpdateView, DeleteView
+from django.views.generic import View, TemplateView, UpdateView, DeleteView, ListView
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
+from .index import IndexView
+
+
+class TaskListView(IndexView):
+    template_name = 'issue_tracker/task_list.html'
 
 
 class TaskDetailView(TemplateView):

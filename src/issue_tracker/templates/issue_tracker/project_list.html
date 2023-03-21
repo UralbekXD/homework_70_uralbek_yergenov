@@ -5,6 +5,15 @@
     Issue Tracker
 {% endblock %}
 
+{% block nav_items %}
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'project_create' %}">
+                Добавить проект
+            </a>
+        </li>
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <div class="row gx-3 gy-5 mb-5">
