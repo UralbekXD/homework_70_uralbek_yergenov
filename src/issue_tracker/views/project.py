@@ -61,10 +61,12 @@ class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
 class ProjectTaskAddView(PermissionRequiredMixin, CreateView):
     model = Task
     form_class = ProjectTaskForm
-    permission_required = 'issue_tracker.change_project'
+    permission_required = 'issue_tracker.create_project_tasks'
 
-    # def has_permission(self):
-    #     return super().has_permission() and (self.request.user in self.object.users.all())
+    def has_permission(self):
+        users = self.object.users.all()
+        user = self.request.user
+        return super().has_permission() and (user in users)
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
@@ -75,8 +77,9 @@ class ProjectTaskAddView(PermissionRequiredMixin, CreateView):
         return reverse('project_detail', kwargs={'pk': self.object.project.pk})
 
 
-class ProjectEditUsersView(LoginRequiredMixin, TemplateView):
+class ProjectEditUsersView(PermissionRequiredMixin, TemplateView):
     template_name = 'issue_tracker/project_update_users.html'
+    permission_required = ('issue_tracker.create_project_users', 'issue_tracker.delete_project_users')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
