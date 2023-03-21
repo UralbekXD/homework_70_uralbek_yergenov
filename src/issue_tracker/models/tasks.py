@@ -50,6 +50,13 @@ class Task(models.Model):
         verbose_name='Проект',
     )
 
+    class Meta:
+        permissions = [
+            ('create_project_tasks', 'Создовать задачи проекта'),
+            ('update_project_tasks', 'Редактировать задачи проекта'),
+            ('delete_project_tasks', 'Удалять задачи проекта'),
+        ]
+
     def __str__(self):
         return self.short_description
 

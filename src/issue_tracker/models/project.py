@@ -36,5 +36,11 @@ class Project(models.Model):
         verbose_name='Пользователи',
     )
 
+    class Meta:
+        permissions = [
+            ('create_project_users', 'Создовать пользователей проекта'),
+            ('delete_project_users', 'Удалять пользователей проекта'),
+        ]
+
     def __str__(self):
         return self.name

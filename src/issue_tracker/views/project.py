@@ -1,5 +1,3 @@
-import json
-
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView
@@ -60,9 +58,13 @@ class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
         return reverse('projects')
 
 
-class ProjectTaskAddView(LoginRequiredMixin, CreateView):
+class ProjectTaskAddView(PermissionRequiredMixin, CreateView):
     model = Task
     form_class = ProjectTaskForm
+    permission_required = 'issue_tracker.change_project'
+
+    # def has_permission(self):
+    #     return super().has_permission() and (self.request.user in self.object.users.all())
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
