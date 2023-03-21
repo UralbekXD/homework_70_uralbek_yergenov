@@ -5,15 +5,16 @@
             <a href="{% url 'project_detail' project.pk %}" style="word-wrap: break-word">
                 {{ project.name }}
             </a>
-        </div>
 
-        <div class="buttons d-flex gap-1">
-            <a href="{% url 'project_update' project.pk %}" class="btn btn-warning btn-sm">Edit</a>
-            <a type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-record-{{ project.pk }}">
-                Delete
-            </a>
+            <div class="mt-3 d-flex justify-content-between flex-wrap">
+                <div class="start">
+                    {{ project.start_date }}
+                </div>
+                <div class="end">
+                    {{ project.end_date }}
+                </div>
+            </div>
 
-            {% include 'issue_tracker/includes/project_modal.html'%}
         </div>
     </div>
 </div>

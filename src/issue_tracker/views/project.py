@@ -1,7 +1,10 @@
+import json
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView
 from django.shortcuts import reverse, get_object_or_404, redirect
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from issue_tracker.models import Project, Task
 from issue_tracker.forms import ProjectForm, TaskForm, ProjectTaskForm
@@ -29,26 +32,29 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectAddView(LoginRequiredMixin, CreateView):
+class ProjectAddView(PermissionRequiredMixin, CreateView):
     template_name = 'issue_tracker/project_create.html'
     model = Project
     form_class = ProjectForm
+    permission_required = 'issue_tracker.add_project'
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectEditView(LoginRequiredMixin, UpdateView):
+class ProjectEditView(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'issue_tracker/project_update.html'
     form_class = ProjectForm
+    permission_required = 'issue_tracker.change_project'
 
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     model = Project
+    permission_required = 'issue_tracker.delete_project'
 
     def get_success_url(self):
         return reverse('projects')

@@ -59,7 +59,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link text-light btn btn-danger btn-sm" href="{% url 'logout' %}">
-                                Выйти
+                                <u>{{ user.username }}</u>, Выйти
                             </a>
                         </li>
                     {% else %}
