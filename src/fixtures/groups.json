@@ -1,0 +1,43 @@
+[
+{
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Project Manager",
+        "permissions": [
+            25,
+            26,
+            27,
+            28,
+            37,
+            38,
+            39,
+            40
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "Team Lead",
+        "permissions": [
+            37,
+            38,
+            39,
+            40
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+        "name": "Developer",
+        "permissions": [
+            37,
+            38
+        ]
+    }
+}
+]
